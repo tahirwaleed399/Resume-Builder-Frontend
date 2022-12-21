@@ -1,0 +1,48 @@
+.step{
+    cursor: pointer;
+ 
+    padding: 30px;
+    border-radius: 50%;
+    position: relative;
+    font-weight: bold;
+    background: gray;
+    color: white;
+    transition: 250ms all linear;
+    
+}
+.completed{
+
+}
+.activeStep {
+    background-color: var(--primaryColor);
+    color: white;
+}
+.step span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
+.stepper{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    flex-wrap: wrap;
+gap: 20px;
+position: relative;
+}
+
+.line{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: calc(100% - 10px);
+    height: 5px;
+    background-color: gainsboro;
+}
+
+@media screen and (max-width:500px) {
+    .line{
+        display: none;
+    }
+}

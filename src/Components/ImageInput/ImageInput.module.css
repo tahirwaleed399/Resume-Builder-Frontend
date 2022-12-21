@@ -1,0 +1,17 @@
+.ImageInput{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.previewBox{
+    height: 300px;
+    width: 100%;
+    max-width: 300px;
+}
+.previewImg{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+
+}
