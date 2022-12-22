@@ -13,7 +13,11 @@ const initialState = {
     email : "",
     website :"",
     linkedin : "",
-  }
+  },
+  skills : [],
+  achievements : [],
+  education : [],
+  workExperience:[]
 }
 
 export const resumeSlice = createSlice({
@@ -24,11 +28,19 @@ export const resumeSlice = createSlice({
         state.basicInfo = {...state.basicInfo , ...action.payload}
       }, setContactDetails: (state , action) => {
         state.contactDetails = {...state.contactDetails , ...action.payload}
+      },setSkillsArray: (state , action) => {
+        state.skills = action.payload
+      },setAchievementsArray: (state , action) => {
+        state.achievements = action.payload
+      },setEducatonArray: (state , action) => {
+        state.education = action.payload
+      },setWorkExperienceArray: (state , action) => {
+        state.workExperience = action.payload
       },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const {setBasicInfo ,setContactDetails } = resumeSlice.actions
+export const {setWorkExperienceArray,setBasicInfo ,setContactDetails,setSkillsArray,setAchievementsArray,setEducatonArray } = resumeSlice.actions
 
 export default resumeSlice.reducer

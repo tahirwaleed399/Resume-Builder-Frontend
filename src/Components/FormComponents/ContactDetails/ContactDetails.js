@@ -1,26 +1,20 @@
 import {
-  Box,
   Button,
-  Container,
   Heading,
   Input,
-  Radio,
-  RadioGroup,
-  Textarea,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import FormOuter from "../FormOuter/FormOuter";
 import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  FormHelperText,
+  
 } from "@chakra-ui/react";
-import ImageInput from "../../ImageInput/ImageInput";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { setBasicInfo, setContactDetails } from "../../../Redux/Slices/resumeSlice";
+import {  setContactDetails } from "../../../Redux/Slices/resumeSlice";
 
 // Form Schema Created By Yup To Validate Entered User data
 const contactDetailsSchema = yup.object().shape({
@@ -53,8 +47,12 @@ const ContactDetails = ({step ,setStep,formValues}) => {
   function submitForm(values) {
     console.log("Contact details Form Info Form Submitted ");
     console.log(values);
-    dispatch(setContactDetails({...values}))
-    // setStep(step+1);
+    
+    // storing Contact Details values to redux store
+    dispatch(setContactDetails({...values}));
+    // sending user to next step
+    setStep(step+1);
+
   }
   return (
     <FormOuter>

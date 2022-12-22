@@ -9,16 +9,19 @@ import Stepper from '../../Components/FormComponents/Stepper/Stepper'
 import WorkExperience from '../../Components/FormComponents/WorkExperience/WorkExperience'
 
 const ResumeForm = () => {
-  const resume = useSelector((state) => state.resume)
+  // getting resume state from redux
+  const resume = useSelector((state) => state.resume);
+  // form steps
   const [step, setStep] = useState(0);
 
+  // Components to display step by step
 const formSteps = {
   0 : <BasicInfo formValues={resume.basicInfo} setStep={setStep} step={step}></BasicInfo>,
   1 : <ContactDetails formValues={resume.contactDetails} setStep={setStep} step={step}></ContactDetails>,
-  2 : <Education setStep={setStep} step={step}></Education>,
-  3 : <Skills setStep={setStep} step={step}></Skills>,
-  4 : <WorkExperience setStep={setStep} step={step}></WorkExperience>,
-  5 : <Achievements setStep={setStep} step={step}></Achievements>
+  2 : <Education formValues={resume.education} setStep={setStep} step={step}></Education>,
+  3 : <Skills  formValues = {resume.skills} setStep={setStep} step={step}></Skills>,
+  4 : <WorkExperience formValues={resume.workExperience} setStep={setStep} step={step}></WorkExperience>,
+  5 : <Achievements  formValues={resume.achievements} setStep={setStep} step={step}></Achievements>
 }
 
     

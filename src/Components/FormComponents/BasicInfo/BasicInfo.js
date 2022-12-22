@@ -1,7 +1,6 @@
 import {
-  Box,
+
   Button,
-  Container,
   Heading,
   Input,
   Radio,
@@ -14,7 +13,6 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  FormHelperText,
 } from "@chakra-ui/react";
 import ImageInput from "../../ImageInput/ImageInput";
 import * as yup from "yup";
@@ -40,9 +38,11 @@ const basicInfoSchema = yup.object().shape({
 
 const BasicInfo = ({step ,setStep,formValues}) => {
   const dispatch = useDispatch();
+  // Field Values that cannot be handled by formik and yup
   const [profile, setProfile] = useState(formValues.profile);
   const [gender, setGender] = useState(formValues.gender);
   
+  // initial values of those fields that can be validate by formik and yup
   let initalFormValues = {
     name: formValues.name,
     title: formValues.title,
@@ -57,8 +57,11 @@ const BasicInfo = ({step ,setStep,formValues}) => {
   function submitForm(values) {
     console.log("Basic Info Form Submitted ");
     console.log(values);
+    
+    // storing BAsic Information values to redux store
     dispatch(setBasicInfo({...values,gender,profile}))
-    // setStep(step+1);
+    // sending user to next step
+    setStep(step+1);
   }
   return (
     <FormOuter>
