@@ -6,9 +6,9 @@ import React from 'react'
 const FormOuter = ({children}) => {
   
   return (
-    <Box margin={10}>
+    <Box  margin={10}>
 
-<Container maxW={'container.sm'} shadow='lg' borderRadius={'md'} padding={5}>
+<Container bg='white' maxW={'container.sm'} shadow='lg' borderRadius={'md'} padding={5}>
 
 <Box>
     {children}

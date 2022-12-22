@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import React,{useState} from 'react'
 import { useSelector } from 'react-redux'
 import Achievements from '../../Components/FormComponents/Achievements/Achievements'
@@ -26,14 +27,14 @@ const formSteps = {
 
     
   return (
-    <div>
+    <Box >
       
       <Stepper formSteps={formSteps} step={step} setStep={setStep}></Stepper>
 
       {
         formSteps[step]
       }
-    </div>
+    </Box>
 
    
   )

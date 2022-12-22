@@ -26,7 +26,7 @@ const workExperienceSchema = yup.object().shape({
   companyName: yup.string().required("Company Name is required"),
   role: yup.string().required("Role is required"),
   location: yup.string().required("location is required"),
-  descripton: yup.string().required("Descripton is required"),
+  description: yup.string().required("Descripton is required"),
   startDate: yup.date().required("Start Date is required"),
   endDate: yup.date().required("End Date is required"),
 });
@@ -38,7 +38,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
     companyName: "",
     role: "",
     location: "",
-    descripton: "",
+    description: "",
     startDate: "",
     endDate: "",
   };
@@ -135,19 +135,19 @@ const WorkExperience = ({formValues,setStep,step}) => {
           <FormControl
             my={2}
             isRequired
-            isInvalid={formik.errors.descripton ? true : false}
+            isInvalid={formik.errors.description ? true : false}
           >
             <FormLabel>Description</FormLabel>
             <Textarea
           
-              name="descripton"
-              id="descripton"
+              name="description"
+              id="description"
               onChange={formik.handleChange}
-              value={formik.values.descripton}
+              value={formik.values.description}
               placeholder="I was working as a developer there ...."
             />
-            {formik.errors.descripton && (
-              <FormErrorMessage>{formik.errors.descripton}</FormErrorMessage>
+            {formik.errors.description && (
+              <FormErrorMessage>{formik.errors.description}</FormErrorMessage>
             )}
           </FormControl>
 

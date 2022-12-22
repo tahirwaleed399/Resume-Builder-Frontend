@@ -18,6 +18,7 @@ import { useFormik } from "formik";
 import { randomIdGenerator } from "../../../Utils/randomIdGenerator";
 import { useDispatch } from "react-redux";
 import { setAchievementsArray } from "../../../Redux/Slices/resumeSlice";
+import { Link } from "react-router-dom";
 
 // Form Data Schema 
 const achievementSchema = yup.object().shape({
@@ -119,13 +120,12 @@ const Achievements = ({ formValues, setStep, step }) => {
           })}
         </VStack>
 
-        <Button
-          onClick={() => setStep(parseInt(step, 10) + 1)}
+<Link to={'/templates'}>        <Button
           w="full"
           colorScheme={"green"}
         >
-          Next{" "}
-        </Button>
+          Next
+        </Button></Link>
       </>
     </FormOuter>
   );
