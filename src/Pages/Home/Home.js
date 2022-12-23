@@ -12,8 +12,10 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+   const {user} = useSelector((state)=>state.userState)
   return (
 
 <Container maxW='container.xl'>
@@ -28,6 +30,7 @@ const Home = () => {
     fontWeight={600}
     fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
     lineHeight={'110%'}>
+      {user && `Hi ${user.name}`} <br />
     Make Your Resume <br />
     <Text as={'span'} color={'green.400'}>
       Get Your Dream Job

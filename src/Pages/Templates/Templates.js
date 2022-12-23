@@ -1,17 +1,25 @@
-import { Box, Container, Flex, Heading, Image } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Heading, Image } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useCreateResumeMutation } from "../../Redux/ResumeApi/ResumeApi";
 import Template01 from "../Template01/Template01";
 import Template02 from "../Template02/Template02";
-
+import {AiFillSave} from 'react-icons/ai'
 const Templates = () => {
+  const [createResume ,createResumeState]=useCreateResumeMutation();
   const resumeState = useSelector((state) => state.resume);
 
   const [resume, setResume] = useState(<Template01 resume={resumeState} />);
+function saveResume(){
+  console.log(resumeState);
+  createResume(resumeState);
+}
+
   return (
     <Container maxW={"container.lg"}>
       <Heading my={4}>Templates</Heading>
-
+      
+<Flex justifyContent='flex-end'><Button onClick={saveResume} rightIcon={<AiFillSave/>} colorScheme={'green'} >Save</Button></Flex>
       <Flex
         my={3}
         wrap={"wrap"}
