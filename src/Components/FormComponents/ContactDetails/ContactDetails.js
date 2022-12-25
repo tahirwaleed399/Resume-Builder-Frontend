@@ -51,7 +51,7 @@ const ContactDetails = ({step ,setStep,formValues}) => {
     // storing Contact Details values to redux store
     dispatch(setContactDetails({...values}));
     // sending user to next step
-    setStep(step+1);
+    setStep(parseInt(step, 10)+1);
 
   }
   return (

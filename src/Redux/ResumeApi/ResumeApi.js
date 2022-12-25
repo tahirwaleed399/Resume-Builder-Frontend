@@ -35,6 +35,21 @@ export const resumeApi = createApi({
       providesTags:['resume']
       
     }),
+           
+    deleteResume: builder.mutation({
+      query: (id) => {
+        return {
+          url: "resume",
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+          credentials: "include",
+          body : {id}
+
+        };
+      },
+      invalidatesTags:['resume' ]
+      
+    }),
        
     
   
@@ -43,5 +58,5 @@ export const resumeApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const {useGetResumesQuery, useCreateResumeMutation } = resumeApi;
+export const {useGetResumesQuery, useCreateResumeMutation,useDeleteResumeMutation } = resumeApi;
  

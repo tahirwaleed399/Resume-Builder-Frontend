@@ -15,12 +15,12 @@ import {
 import { useState } from "react";
 import { toast } from "react-toastify";
 import * as yup from "yup";
-// import Loader from "../../Components/Shared/Loader";
 import { useFormik } from "formik";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useSignInMutation } from "../../Redux/UserApi/User";
 import { useLoader } from "../../Hooks/useLoader";import { useNavigate } from "react-router-dom";
+import Loader from "../Loader/Loader";
 export default function Signin() {
   const navigate = useNavigate();
 
@@ -60,7 +60,7 @@ export default function Signin() {
     <>
  
 
-      {/* {state.isLoading && <Loader></Loader>} */}
+      {state.isLoading && <Loader></Loader>}
     
       <Flex
         minH={"100vh"}

@@ -15,12 +15,15 @@ import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import GuestRoute from './Components/GuestRoute/GuestRoute';
 import Navbar from './Components/Navbar/Navbar';
+import AllResumes from './Pages/AllResumes/AllResumes';
+import Loader from './Pages/Loader/Loader';
 function App() {
   const location = useLocation();
   return (
     <>
       <ParticleBackground/>
       <ToastContainer />
+
       <Navbar></Navbar>
     <div className="App">
       <AnimatePresence exitBeforeEnter>
@@ -29,6 +32,7 @@ function App() {
         <Route path="/" element={<Transition><ProtectedRoute><Home /></ProtectedRoute></Transition>} />
         <Route path="/resume-form" element={<Transition><ProtectedRoute><ResumeForm /></ProtectedRoute></Transition>} />
         <Route path="/templates" element={<Transition><ProtectedRoute><Templates /></ProtectedRoute></Transition>} />
+        <Route path="/my-resumes" element={<Transition><ProtectedRoute><AllResumes /></ProtectedRoute></Transition>} />
 
         <Route path="/sign-in" element={<GuestRoute><Signin /></GuestRoute>} />
         <Route path="/sign-up" element={<GuestRoute><Signup /></GuestRoute>} />

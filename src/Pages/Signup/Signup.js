@@ -11,7 +11,7 @@ import {
   Avatar,
   AvatarGroup,
   useBreakpointValue,
-  IconProps,
+
   Icon,
   FormControl,
   FormErrorMessage,
@@ -19,13 +19,13 @@ import {
 import * as yup from "yup";
 import { useFormik } from "formik";
 import React, { useState,useEffect } from "react";
-// import { useSignUpMutation } from "../../Redux/UserApi/User";
-// import { useLoader } from "../../Hooks/useLoader";
+
 import { toast } from "react-toastify";
 import { useSignUpMutation } from "../../Redux/UserApi/User";
 import { useLoader } from "../../Hooks/useLoader";
 import { Link } from "react-router-dom";import { useNavigate } from "react-router-dom";
-// import Loader from "../../Components/Shared/Loader";
+import Loader from "../Loader/Loader";
+
 
 const avatars = [
   {
@@ -91,7 +91,7 @@ export default function Signup() {
 
   <>
   {
-    // state.isLoading && <Loader></Loader>
+    state.isLoading && <Loader></Loader>
   }
 
     <Box position={"relative"}>

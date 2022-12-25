@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Box,
   Heading,
@@ -12,10 +12,17 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setResumeInitialState } from '../../Redux/Slices/resumeSlice';
 
 const Home = () => {
    const {user} = useSelector((state)=>state.userState)
+   const dispatch = useDispatch();
+
+   useEffect(()=>{
+    
+    dispatch(setResumeInitialState())
+   },[])
   return (
 
 <Container maxW='container.xl'>
@@ -54,12 +61,10 @@ const Home = () => {
       _hover={{
         bg: 'green.500',
       }}>
-      Get Started
+      Create Resume
     </Button>
     </Link>
-    <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-      Learn more
-    </Button>
+ 
     <Box>
       <Icon
         as={Arrow}

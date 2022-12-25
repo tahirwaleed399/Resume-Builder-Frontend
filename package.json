@@ -21,6 +21,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.5.0",
     "react-scripts": "5.0.1",
+    "react-to-print": "^2.14.10",
     "react-toastify": "^9.1.1",
     "react-tsparticles": "^2.6.0",
     "tsparticles": "^2.6.0",
@@ -51,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy" : "http://localhost:5000"
+  "proxy": "http://localhost:5000"
 }

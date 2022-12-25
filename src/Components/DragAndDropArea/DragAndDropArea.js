@@ -1,6 +1,6 @@
 import React from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-
+// React Beautiful Dnd Drag And Drop Feature
 const DragAndDropArea = ({droppableId , itemsArray , setItemsArray}) => {
     const onDragEnd = (result) => {
         if (!result.destination) {
@@ -29,6 +29,7 @@ const DragAndDropArea = ({droppableId , itemsArray , setItemsArray}) => {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
+                    // The Item to be rendered 
                     {item.component}
                     {provided.placeholder}
                   </div>
