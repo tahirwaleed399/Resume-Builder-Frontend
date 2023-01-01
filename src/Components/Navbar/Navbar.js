@@ -6,7 +6,7 @@ import {
   Button,
   Stack,
   Collapse,
-  Popover,
+  Popover, 
   PopoverTrigger,
   useColorModeValue,
   useDisclosure,
@@ -90,7 +90,7 @@ export default function Navbar() {
                 <Box display="flex" alignItems={"center"}>
                   <Link to="/sign-in">
                     <Button
-                      as={"a"}
+           
                       fontSize={"sm"}
                       fontWeight={400}
                       variant={"link"}

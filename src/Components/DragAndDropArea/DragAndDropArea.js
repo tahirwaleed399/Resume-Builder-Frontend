@@ -29,7 +29,7 @@ const DragAndDropArea = ({droppableId , itemsArray , setItemsArray}) => {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
-                    // The Item to be rendered 
+                    {/* // The Item to be rendered  */}
                     {item.component}
                     {provided.placeholder}
                   </div>

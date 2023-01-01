@@ -13,6 +13,7 @@ import WorkExperience from '../../Components/FormComponents/WorkExperience/WorkE
 const ResumeForm = () => {
   // getting resume state from redux
   const resume = useSelector((state) => state.resume);
+
   // form steps
   const [step, setStep] = useState(0);
 
@@ -32,7 +33,7 @@ const formSteps = {
     <Box >
       
       <Stepper formSteps={formSteps} step={step} setStep={setStep}></Stepper>
-
+<div>fds</div>
       {
         formSteps[step]
       }
@@ -42,4 +43,4 @@ const formSteps = {
   )
 }
 
-export default ResumeForm
+export default ResumeForm;

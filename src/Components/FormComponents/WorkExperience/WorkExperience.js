@@ -27,12 +27,12 @@ const workExperienceSchema = yup.object().shape({
   role: yup.string().required("Role is required"),
   location: yup.string().required("location is required"),
   description: yup.string().required("Descripton is required"),
-  startDate: yup.date().required("Start Date is required"),
+  startDate: yup.date().required("Start Date is required"), 
   endDate: yup.date().required("End Date is required"),
 });
 
 const WorkExperience = ({formValues,setStep,step}) => {
-  const [workExperienceList, setWorkExperienceList] = useState(formValues);
+  const [workExperienceList, setWorkExperienceList] = useState(formValues??[]);
   const dispatch = useDispatch();
   let initalFormValues = {
     companyName: "",
@@ -92,6 +92,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
               onChange={formik.handleChange}
               value={formik.values.companyName}
               placeholder="Microsoft..."
+              data-testid="companyName"
             />
             {formik.errors.companyName && (
               <FormErrorMessage>{formik.errors.companyName}</FormErrorMessage>
@@ -109,6 +110,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
               onChange={formik.handleChange}
               value={formik.values.role}
               placeholder="Frontend Developer"
+              data-testid="role"
             />
             {formik.errors.role && (
               <FormErrorMessage>{formik.errors.role}</FormErrorMessage>
@@ -127,6 +129,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
               onChange={formik.handleChange}
               value={formik.values.location}
               placeholder="America"
+              data-testid="location"
             />
             {formik.errors.location && (
               <FormErrorMessage>{formik.errors.location}</FormErrorMessage>
@@ -145,6 +148,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
               onChange={formik.handleChange}
               value={formik.values.description}
               placeholder="I was working as a developer there ...."
+              data-testid="description"
             />
             {formik.errors.description && (
               <FormErrorMessage>{formik.errors.description}</FormErrorMessage>
@@ -166,6 +170,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
               id="startDate"
               value={formik.values.startDate}
               onChange={formik.handleChange}
+              data-testid="startDate"
             />
             {formik.errors.startDate && (
               <FormErrorMessage>{formik.errors.startDate}</FormErrorMessage>
@@ -177,12 +182,13 @@ const WorkExperience = ({formValues,setStep,step}) => {
               id="endDate"
               value={formik.values.endDate}
               onChange={formik.handleChange}
+              data-testid="endDate"
             />
             {formik.errors.endDate && (
               <FormErrorMessage>{formik.errors.endDate}</FormErrorMessage>
             )}
           </FormControl>
-          <Button type="submit" variant="outline" colorScheme={"green"}>
+          <Button data-testid="submitWorkExperienceForm" type="submit" variant="outline" colorScheme={"green"}>
             Add
           </Button>
         </form>
@@ -190,6 +196,7 @@ const WorkExperience = ({formValues,setStep,step}) => {
           {workExperienceList.map(({ id, companyName, role }) => {
             return (
               <Flex
+              key={id ?? role}
                 justifyContent={"space-between"}
                 w="full"
                 borderRadius={"md"}

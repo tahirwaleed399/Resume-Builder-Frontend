@@ -72,7 +72,7 @@ export default function Signin() {
           <Stack align={"center"}>
             <Heading fontSize={"4xl"}>Sign in to your account</Heading>
             <Text fontSize={"lg"} color={"gray.600"}>
-              to enjoy all of our cool <Link color={"blue.400"}>features</Link>{" "}
+              to enjoy all of our cool <Text color={"blue.400"}>features</Text>{" "}
               ✌️
             </Text>
           </Stack>
@@ -127,7 +127,7 @@ export default function Signin() {
                 )}
               </FormControl>
               <Stack spacing={10}>
-                <Stack
+                <Stack 
                   direction={{ base: "column", sm: "row" }}
                   align={"start"}
                   justify={"space-between"}

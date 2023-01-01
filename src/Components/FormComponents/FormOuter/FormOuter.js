@@ -1,5 +1,5 @@
-import { Box, Container } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Container } from '@chakra-ui/react';
+import React from 'react';
 // This Component is just an frame for every form component USING DRY 😂
 
 const FormOuter = ({children}) => {

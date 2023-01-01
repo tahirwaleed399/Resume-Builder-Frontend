@@ -21,12 +21,15 @@ function App() {
   const location = useLocation();
   return (
     <>
+
+    
       <ParticleBackground/>
       <ToastContainer />
 
       <Navbar></Navbar>
     <div className="App">
-      <AnimatePresence exitBeforeEnter>
+      {/* //exitbefore hataya he yahan se  */}
+      <AnimatePresence>
 
         <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Transition><ProtectedRoute><Home /></ProtectedRoute></Transition>} />

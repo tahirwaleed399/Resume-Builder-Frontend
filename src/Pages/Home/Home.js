@@ -20,12 +20,11 @@ const Home = () => {
    const dispatch = useDispatch();
 
    useEffect(()=>{
-    
     dispatch(setResumeInitialState())
    },[])
   return (
-
 <Container maxW='container.xl'>
+
 <Flex alignItems={'center'} flexDirection={{base:'column' , lg:'row'}} justifyContent='center' gap={4}>
   {/* Cta text and buttons */}
 <Stack
@@ -35,9 +34,10 @@ const Home = () => {
   py={{ base: 20, md: 36 }}>
   <Heading
     fontWeight={600}
+   
     fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
     lineHeight={'110%'}>
-      {user && `Hi ${user.name}`} <br />
+    Hi   <span data-testid="user">{user && `${user.name}`}</span> <br />
     Make Your Resume <br />
     <Text as={'span'} color={'green.400'}>
       Get Your Dream Job
@@ -76,7 +76,7 @@ const Home = () => {
       />
       <Text
         fontSize={'lg'}
-        fontFamily={'Caveat'}
+        fontFamily={'Caveat'} 
         position={'absolute'}
         right={'-105px'}
         top={'-10px'}
@@ -92,6 +92,7 @@ const Home = () => {
 </Stack>
 </Flex>
 </Container>
+
 
   )
 }

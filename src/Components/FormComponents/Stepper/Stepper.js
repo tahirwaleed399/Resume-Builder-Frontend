@@ -1,7 +1,7 @@
 import { Container } from '@chakra-ui/react'
 import React from 'react'
 import styles from './Stepper.module.css'
-const Stepper = ({formSteps , step , setStep}) => {
+const Stepper = ({formSteps , step , setStep}) => { 
   return (
    <Container maxW={'container.lg'}>
      <div className={styles.stepper}>

@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import FormOuter from '../FormOuter/FormOuter'
 import * as yup from 'yup';
 import {AiFillDelete} from 'react-icons/ai'
-import { useFormik } from 'formik';
+import { useFormik } from 'formik'; 
 import { randomIdGenerator } from '../../../Utils/randomIdGenerator';
 import { useDispatch } from 'react-redux';
 import { setSkillsArray } from '../../../Redux/Slices/resumeSlice';
@@ -17,7 +17,7 @@ const skillsSchema = yup.object().shape({
   
 });
  const Skills = ({formValues,setStep,step}) => {
-  const [skills , setSkills]= useState(formValues);
+  const [skills , setSkills]= useState(formValues??[]);
 const [skillPercentage, setSkillPercentage] = useState(0);
 const [showTooltip, setShowTooltip] = useState(false);
 const dispatch = useDispatch();

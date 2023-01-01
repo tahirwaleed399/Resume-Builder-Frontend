@@ -28,7 +28,7 @@ const educationSchema = yup.object().shape({
 });
 const Education = ({formValues,setStep,step}) => {
   //setting an Array state for storing indvidual objects of every submissio
-  const [educationList, setEducationList] = useState(formValues);
+  const [educationList, setEducationList] = useState(formValues ?? []);
   const dispatch = useDispatch();
   let initalFormValues = {
     title: "",
@@ -83,6 +83,7 @@ const Education = ({formValues,setStep,step}) => {
               type="text"
               name="title"
               id="title"
+              data-testid='title'
               onChange={formik.handleChange}
               value={formik.values.title}
               placeholder="Schooling xyz"
@@ -101,6 +102,7 @@ const Education = ({formValues,setStep,step}) => {
               type="text"
               name="institute"
               id="institute"
+              data-testid="institute"
               onChange={formik.handleChange}
               value={formik.values.institute}
               placeholder="Havard"
@@ -123,6 +125,7 @@ const Education = ({formValues,setStep,step}) => {
               type="date"
               name="startDate"
               id="startDate"
+              data-testid='startDate'
               value={formik.values.startDate}
               onChange={formik.handleChange}
             />
@@ -134,6 +137,7 @@ const Education = ({formValues,setStep,step}) => {
               type="date"
               name="endDate"
               id="endDate"
+              data-testid='endDate'
               value={formik.values.endDate}
               onChange={formik.handleChange}
             />
@@ -141,7 +145,7 @@ const Education = ({formValues,setStep,step}) => {
               <FormErrorMessage>{formik.errors.endDate}</FormErrorMessage>
             )}
           </FormControl>
-          <Button type="submit" variant="outline" colorScheme={"green"}>
+          <Button  type="submit" data-testid='submitEducationForm' variant="outline" colorScheme={"green"}>
             Add
           </Button>
         </form>
@@ -149,6 +153,7 @@ const Education = ({formValues,setStep,step}) => {
           {educationList.map(({ id, title, institute }) => {
             return (
               <Flex
+              key={id ?? title}
                 justifyContent={"space-between"}
                 w="full"
                 borderRadius={"md"}
@@ -168,7 +173,7 @@ const Education = ({formValues,setStep,step}) => {
             );
           })}
         </VStack>
-        <Button onClick={()=> setStep(parseInt(step , 10)+1)}  my={3} colorScheme={'green'} w='full'>Next</Button>
+        <Button data-testid='next' onClick={()=> setStep(parseInt(step , 10)+1)}  my={3} colorScheme={'green'} w='full'>Next</Button>
       </>
     </FormOuter>
   );

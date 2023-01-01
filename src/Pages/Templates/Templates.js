@@ -34,7 +34,7 @@ const Templates = () => {
           Print
         </Button>}
         content={() => componentRef.current}
-      />
+      /> 
         {!resumeState.id && (
           <Button
           onClick={saveResume}

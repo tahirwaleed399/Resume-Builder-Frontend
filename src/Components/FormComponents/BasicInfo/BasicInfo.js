@@ -38,31 +38,31 @@ const basicInfoSchema = yup.object().shape({
 
 const BasicInfo = ({step ,setStep,formValues}) => {
   const dispatch = useDispatch();
+  const submitForm = (values)=>{
+
+       // sending user to next step
+       setStep(step+1);
+    // storing BAsic Information values to redux store
+    dispatch(setBasicInfo({...values,gender,profile}))
+ 
+  }
   // Field Values that cannot be handled by formik and yup
-  const [profile, setProfile] = useState(formValues.profile);
-  const [gender, setGender] = useState(formValues.gender);
+  const [profile, setProfile] = useState(formValues?.profile ?? "");
+  const [gender, setGender] = useState(formValues?.gender ?? "male");
   
   // initial values of those fields that can be validate by formik and yup
   let initalFormValues = {
-    name: formValues.name,
-    title: formValues.title,
-    summary: formValues.summary,
+    name: formValues?.name?? "",
+    title: formValues?.title ?? "",
+    summary: formValues?.summary ?? "",
   };
   const formik = useFormik({
     initialValues: initalFormValues,
     validationSchema: basicInfoSchema,
-    validateOnChange: true,
+    validateOnChange: true, 
     onSubmit: submitForm,
   });
-  function submitForm(values) {
-    console.log("Basic Info Form Submitted ");
-    console.log(values);
-    
-    // storing BAsic Information values to redux store
-    dispatch(setBasicInfo({...values,gender,profile}))
-    // sending user to next step
-    setStep(step+1);
-  }
+
   return (
     <FormOuter>
       <>
@@ -82,6 +82,7 @@ const BasicInfo = ({step ,setStep,formValues}) => {
               value={formik.values.name}
               colorScheme={"green"}
               placeholder="Waleed Tahir"
+              data-testid="name"
             ></Input>
             {formik.errors.name && (
               <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
@@ -97,6 +98,7 @@ const BasicInfo = ({step ,setStep,formValues}) => {
               value={formik.values.title}
               colorScheme={"green"}
               placeholder="Mern Stack devloper"
+              data-testid="title"
             ></Input>
             {formik.errors.name && (
               <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
@@ -109,6 +111,7 @@ const BasicInfo = ({step ,setStep,formValues}) => {
               id="gender"
               onChange={(e)=>setGender(e)}
               value={gender}
+          
            colorScheme={"green"} >
               <Radio  value="male">
                 Male
@@ -123,6 +126,7 @@ const BasicInfo = ({step ,setStep,formValues}) => {
             <FormLabel>Summary</FormLabel>
             <Textarea  name="summary"
               id="summary"
+              data-testid="summary"
               onChange={formik.handleChange}
               value={formik.values.summary}  placeholder="I am working as a React js Developer..."></Textarea>
             {formik.errors.name && (
@@ -133,7 +137,7 @@ const BasicInfo = ({step ,setStep,formValues}) => {
             <FormLabel>Select Your Image</FormLabel>
             <ImageInput image={profile} setImage={setProfile}></ImageInput>
           </FormControl>
-          <Button type="submit" w="full" my={5} colorScheme={"green"}>
+          <Button data-testid="submitBasicForm" type="submit" w="full" my={5} colorScheme={"green"}>
             Next
           </Button>
         </form>

@@ -37,18 +37,17 @@ const userSlice = createSlice({
     setState(state, true, false, false, null, null);
   })
   .addCase(getUser.fulfilled, (state, { payload }) => {
- console.log(payload)
     setState(state, false, true, false, null, payload);
   })
   .addCase(getUser.rejected, (state, { payload }) => {
     setState(state, false, false, true, payload, null);
   })
    .addCase(isAuthenticatedUser.fulfilled, (state, { payload }) => {
-    console.log(payload)
+
     state.isAuthenticated = true;
   })
   .addCase(isAuthenticatedUser.rejected, (state, { payload }) => {
-    console.log(payload)
+
 
     state.isAuthenticated = false;
   })
@@ -65,7 +64,7 @@ export const getUser = createAsyncThunk(
 
       return res.data.data.user;
     } catch (err) {
-      console.log(err["response"].data.message)
+
       toast.error(err["response"].data.message);
       return thunkAPI.rejectWithValue(err["response"].data.message);
     }

@@ -10,7 +10,7 @@ import {
   FormLabel,
   FormErrorMessage,
   
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"; 
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
@@ -33,10 +33,10 @@ const ContactDetails = ({step ,setStep,formValues}) => {
   const dispatch = useDispatch();
   
   let initalFormValues = {
-    phone : formValues.phone,
-    linkedin : formValues.linkedin,
-    website : formValues.website,
-    email : formValues.email,
+    phone : formValues?.phone ?? "",
+    linkedin : formValues?.linkedin ?? "",
+    website : formValues?.website ?? "",
+    email : formValues?.email ?? "",
   };
   const formik = useFormik({
     initialValues: initalFormValues,
@@ -72,6 +72,7 @@ const ContactDetails = ({step ,setStep,formValues}) => {
               onChange={formik.handleChange}
               value={formik.values.phone}
               colorScheme={"green"}
+              data-testid='phone'
               placeholder="+92 3336998773"
             ></Input>
             {formik.errors.phone && (
@@ -87,6 +88,7 @@ const ContactDetails = ({step ,setStep,formValues}) => {
               onChange={formik.handleChange}
               value={formik.values.email}
               colorScheme={"green"}
+              data-testid='email'
               placeholder="example@gmail.com"
             ></Input>
             {formik.errors.email && (
@@ -102,6 +104,7 @@ const ContactDetails = ({step ,setStep,formValues}) => {
               onChange={formik.handleChange}
               value={formik.values.website}
               colorScheme={"green"}
+              data-testid='website'
               placeholder="waleed.com"
             ></Input>
             {formik.errors.website && (
@@ -114,6 +117,7 @@ const ContactDetails = ({step ,setStep,formValues}) => {
               type="text"
               name="linkedin"
               id="linkedin"
+              data-testid='linkedin'
               onChange={formik.handleChange}
               value={formik.values.linkedin}
               colorScheme={"green"}
@@ -124,7 +128,7 @@ const ContactDetails = ({step ,setStep,formValues}) => {
             )}
           </FormControl>
     
-          <Button type="submit" w="full" my={5} colorScheme={"green"}>
+          <Button data-testid="submitContactForm" type="submit" w="full" my={5} colorScheme={"green"}>
             Next
           </Button>
         </form>

@@ -32,7 +32,7 @@ const dispatch =useDispatch();
           // function we want to call after request is suxessful
           callback();
         }
-      }, [state, dispatch ,loading ,success,callback]);
+      }, [state, dispatch ,loading ,success]);
       
 
 }
